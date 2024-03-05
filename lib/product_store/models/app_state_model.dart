@@ -5,27 +5,13 @@ import 'package:store_pro/product_store/models/icecream.dart';
 double _salesTaxRate = 0.18;
 double _shippingCostPerItem = 10;
 
-// enum ThemeModeType { light, dark }
-
 class AppStateModel extends ChangeNotifier {
-  // ThemeModeType _themeMode = ThemeModeType.light;
-
-  // ThemeModeType get themeMode => _themeMode;
 
   List<Icecreams> _availableProducts = [];
 
   final _productsInCart = <int, int>{};
 
   Map<int, int> get productsInCart => Map.from(_productsInCart);
-
-  // List<Product> get availableProducts => List.from(_availableProducts);
-
-  // void _toggleMode() {
-  //   _themeMode = _themeMode == ThemeModeType.light
-  //       ? ThemeModeType.dark
-  //       : ThemeModeType.light;
-  //   notifyListeners();
-  // }
 
   List<Icecreams> getProducts() {
     return _availableProducts;
@@ -34,9 +20,6 @@ class AppStateModel extends ChangeNotifier {
   Icecreams getProductById(int id) {
     return _availableProducts.firstWhere((element) => element.productId == id);
   }
-
-  // int get totalCartQuantity =>
-  //     _productsInCart.values.fold(0, (sum, value) => sum + value);
 
   double get subtotalCost {
     return _productsInCart.keys
